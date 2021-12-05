@@ -1,5 +1,7 @@
 //导入node的包
 const Koa = require('koa')
+const koaBody = require('koa-body')
+const KoaBody = require('koa-body')
 //引入自定义的包
 const userRouter = require('../router/user.route')
 
@@ -14,6 +16,9 @@ const app = new Koa()//创建一个koa app
 //     ctx.body = 'user'
 // })
 
+
+//注册koa-body
+app.use(koaBody())
 //注册路由到中间件
 // app.use(router.routes())
 app.use(userRouter.routes())
