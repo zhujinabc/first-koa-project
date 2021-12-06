@@ -2,7 +2,7 @@
 const Koa = require('koa')
 const koaBody = require('koa-body')
 //引入自定义的包
-const userRouter = require('../router/user.route')
+const router = require('../router')
 const errHandler = require('./errHandler')
 
 
@@ -20,9 +20,8 @@ const app = new Koa()//创建一个koa app
 
 //注册koa-body
 app.use(koaBody())
-//注册路由到中间件
-// app.use(router.routes())
-app.use(userRouter.routes())
+//注册路由到中间件,并返回支持的方法
+app.use(router.routes()).use(router.allowedMethods())
 
 //统一的错误处理
 app.on('error', errHandler)

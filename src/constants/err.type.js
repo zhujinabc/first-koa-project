@@ -29,4 +29,19 @@ module.exports = {
         message: '无效密码',
         result: ''
     },
+    tokenExpiredError: {
+        code:'10101',
+        message: 'token已过期',
+        result: ''
+    },
+    invalidTokenError: {
+        code:'10102',
+        message: '无效token',
+        result: ''
+    },
+    hasNotAdminPermission: {
+        code:'10103',
+        message: '无管理员权限',
+        result: ''
+    }
 }
